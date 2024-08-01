@@ -29,7 +29,7 @@ def get_ci_tables(encoding, tree_size=LARGE, **kwargs):
 
     :return: two pd.DataFrame, containing values for CI computation: predicted and target tables
     """
-    predicted_path, target_path = get_ci_table_paths(tree_size, encoding)
+    predicted_path, target_path = get_ci_table_paths(encoding=encoding, tree_size=tree_size, **kwargs)
     return (pd.read_csv(predicted_path, compression='xz', header=None, names=PREDICTED_NAMES),
             pd.read_csv(target_path, compression='xz', header=None, names=TARGET_NAMES))
 
